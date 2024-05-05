@@ -4,6 +4,7 @@ import { dataSourceOptions } from './db/data-source';
 import { ConfigModule } from '@nestjs/config';
 import { StaffModule } from './modules/staff/staff.module';
 import { RoleModule } from './modules/role/role.module';
+import { PermissionModule } from './modules/permission/permission.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { RoleModule } from './modules/role/role.module';
     ConfigModule.forRoot(),
     StaffModule,
     RoleModule,
+    PermissionModule,
   ],
   controllers: [],
   providers: [],
