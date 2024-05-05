@@ -2,12 +2,14 @@ import {
   ConflictException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { UpdateStaffDto } from './dto/update-staff.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Staff } from './entities/staff.entity';
+import dataSource from 'src/db/data-source';
 
 @Injectable()
 export class StaffService {
@@ -78,6 +80,22 @@ export class StaffService {
     const staff = await this.findOne(staffId);
 
     await this.staffRepository.delete(staffId);
+
+    return staff;
+  }
+
+  async findByEmail(email: string) {
+    const staff = dataSource
+      .getRepository(Staff)
+      .createQueryBuilder('staff')
+      .leftJoinAndSelect('staff.roles', 'role')
+      .leftJoinAndSelect('role.permissions', 'permission')
+      .where('staff.email = :email', { email: email })
+      .addSelect('staff.password')
+      .getOne()
+      .catch(() => {
+        throw new UnauthorizedException('Staff not found');
+      });
 
     return staff;
   }
