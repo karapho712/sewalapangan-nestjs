@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './db/data-source';
 import { ConfigModule } from '@nestjs/config';
 import { StaffModule } from './modules/staff/staff.module';
+import { RoleModule } from './modules/role/role.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { StaffModule } from './modules/staff/staff.module';
     }),
     ConfigModule.forRoot(),
     StaffModule,
+    RoleModule,
   ],
   controllers: [],
   providers: [],
