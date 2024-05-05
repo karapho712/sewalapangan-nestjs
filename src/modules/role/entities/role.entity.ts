@@ -1,4 +1,5 @@
 import { kebabCase } from 'lodash';
+import { Permission } from 'src/modules/permission/entities/permission.entity';
 import { Staff } from 'src/modules/staff/entities/staff.entity';
 import { EntityRef } from 'src/utils/entity-ref-abstract.entity';
 import {
@@ -8,6 +9,8 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   UpdateDateColumn,
 } from 'typeorm';
@@ -25,6 +28,14 @@ export class Role extends EntityRef {
 
   @Column()
   slug: string;
+
+  @ManyToMany(() => Permission, { eager: true })
+  @JoinTable({
+    name: 'roles_permissions',
+    joinColumn: { name: 'roleId' },
+    inverseJoinColumn: { name: 'permissionId' },
+  })
+  permissions: EntityRef<Permission>[] | Permission[];
 
   //   Metadata
 

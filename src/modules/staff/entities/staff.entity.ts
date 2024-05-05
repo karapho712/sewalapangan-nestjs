@@ -1,4 +1,5 @@
 import { hash } from 'bcrypt';
+import { Role } from 'src/modules/role/entities/role.entity';
 import { EntityRef } from 'src/utils/entity-ref-abstract.entity';
 import {
   BeforeInsert,
@@ -7,6 +8,8 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   UpdateDateColumn,
 } from 'typeorm';
@@ -27,6 +30,14 @@ export class Staff extends EntityRef {
 
   @Column({ select: false })
   password: string;
+
+  @ManyToMany(() => Role, { eager: true })
+  @JoinTable({
+    name: 'staffs_roles',
+    joinColumn: { name: 'staffId' },
+    inverseJoinColumn: { name: 'roleId' },
+  })
+  roles: EntityRef<Role>[] | Role[];
 
   //   META
   @CreateDateColumn({ type: 'timestamp with time zone' })
