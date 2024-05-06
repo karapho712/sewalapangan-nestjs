@@ -31,22 +31,14 @@ export class AuthService {
   async login(loginDto: LoginDto) {
     const user = await this.validateUser(loginDto);
 
-    const payload = {
-      email: user.email,
-      id: user.id,
-      sub: {
-        name: user.name,
-      },
-    };
-
     return {
       user,
       backendTokens: {
-        accessToken: await this.jwtService.signAsync(payload, {
+        accessToken: await this.jwtService.signAsync(user, {
           expiresIn: ACCESS_TOKEN_EXPIRE_TIME,
           secret: process.env.jwtSecretKey,
         }),
-        refreshToken: await this.jwtService.signAsync(payload, {
+        refreshToken: await this.jwtService.signAsync(user, {
           expiresIn: REFRESH_TOKEN_EXPIRE_TIME,
           secret: process.env.jwtRefreshTokenKey,
         }),
@@ -58,18 +50,13 @@ export class AuthService {
   async refreshToken(user: Staff) {
     const staff = await this.staffService.findByEmail(user.email);
 
-    const payload = {
-      email: user.email,
-      id: user.id,
-    };
-
     return {
       user: staff,
-      accessToken: await this.jwtService.signAsync(payload, {
+      accessToken: await this.jwtService.signAsync(user, {
         expiresIn: ACCESS_TOKEN_EXPIRE_TIME,
         secret: process.env.jwtSecretKey,
       }),
-      refreshToken: await this.jwtService.signAsync(payload, {
+      refreshToken: await this.jwtService.signAsync(user, {
         expiresIn: REFRESH_TOKEN_EXPIRE_TIME,
         secret: process.env.jwtRefreshTokenKey,
       }),
