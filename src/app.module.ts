@@ -9,6 +9,7 @@ import { CourtModule } from './modules/court/court.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtGuard } from './modules/auth/guards/jwt.guard';
+import { RentalEquipmentModule } from './modules/rental-equipment/rental-equipment.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { JwtGuard } from './modules/auth/guards/jwt.guard';
     PermissionModule,
     CourtModule,
     AuthModule,
+    RentalEquipmentModule,
   ],
   controllers: [],
   providers: [
