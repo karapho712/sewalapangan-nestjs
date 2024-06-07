@@ -24,7 +24,6 @@ export class StaffService {
         email: email,
       },
     });
-    console.log(test);
     return test;
   }
 

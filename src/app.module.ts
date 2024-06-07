@@ -10,6 +10,8 @@ import { AuthModule } from './modules/auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtGuard } from './modules/auth/guards/jwt.guard';
 import { RentalEquipmentModule } from './modules/rental-equipment/rental-equipment.module';
+import { BookingModule } from './modules/booking/booking.module';
+import { TransactionModule } from './modules/transaction/transaction.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { RentalEquipmentModule } from './modules/rental-equipment/rental-equipme
     CourtModule,
     AuthModule,
     RentalEquipmentModule,
+    BookingModule,
+    TransactionModule,
   ],
   controllers: [],
   providers: [
