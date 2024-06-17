@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, In } from 'typeorm';
-import dataSource from 'src/db/data-source';
+import dataSource from 'src/data-source/data-source';
 import { Status } from 'src/types';
 import { EntityRef } from 'src/utils/entity-ref-abstract.entity';
 import { Booking } from '../booking/entities/booking.entity';

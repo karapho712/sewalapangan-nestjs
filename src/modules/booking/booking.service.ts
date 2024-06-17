@@ -13,7 +13,7 @@ import { EntityRef } from 'src/utils/entity-ref-abstract.entity';
 import { Staff } from 'src/modules/staff/entities/staff.entity';
 import { TransactionService } from 'src/modules/transaction/transaction.service';
 import { RentalEquipment } from '../rental-equipment/entities/rental-equipment.entity';
-import dataSource from 'src/db/data-source';
+import dataSource from 'src/data-source/data-source';
 import { Court } from 'src/modules/court/entities/court.entity';
 import { map } from 'lodash';
 import { Status } from 'src/types';

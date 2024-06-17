@@ -1,0 +1,50 @@
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiMDZkOTA4LWE0ZjAtNGNjYy04YWE5LTY0YmMyYWM5MGY3MyIsImVtYWlsIjoiYWxpZWZwZXJ0YW1hQGdtYWlsLmNvbSIsIm5hbWUiOiJhbGllZnBlcnRhbWFZWVkiLCJjcmVhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjAwOjQxLjMyMFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjA0OjEyLjc2OFoiLCJyb2xlcyI6W3siaWQiOiI1MWI5ZjQyMy04YjlmLTQ3ZTMtOGMxNy1lOGQyNmE0M2IyZGUiLCJuYW1lIjoiU3RhZmYgbGFwYW5nYW4iLCJzbHVnIjoic3RhZmYtbGFwYW5nYW4iLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJwZXJtaXNzaW9ucyI6W3siaWQiOiIyMmM1YzhiZC05Nzg5LTQxYmUtYTRhMi1hM2RiMWE1ODA1NTciLCJuYW1lIjoiYXBpIGRlbGV0ZSBjb3VydCIsImtleSI6ImFwaS5kZWxldGUuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoifSx7ImlkIjoiNGZmMjAxNmItYzZiMi00MzBiLWE0MTAtZGNjNDQ5ZmE5NzQzIiwibmFtZSI6ImFwaSB2aWV3IGNvdXJ0Iiwia2V5IjoiYXBpLnZpZXcuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloifSx7ImlkIjoiOWNmYzdiNDEtYmRjYy00ZDRjLWFkOGMtNTRlNThmNmIzMzYzIiwibmFtZSI6ImFwaSB1cGRhdGUgY291cnQiLCJrZXkiOiJhcGkudXBkYXRlLmNvdXJ0IiwiY3JlYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIiwidXBkYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIn0seyJpZCI6IjNkMWE0MjAwLWJlOWUtNGVhOC1iMThjLWE0MTc2Mzc3ZGM5YyIsIm5hbWUiOiJhcGkgY3JlYXRlIGNvdXJ0Iiwia2V5IjoiYXBpLmNyZWF0ZS5jb3VydCIsImNyZWF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiJ9XX1dLCJpYXQiOjE3MTg1ODM1ODMsImV4cCI6MTcxODU4NTM4M30.4lXfXgsBHy4YPxSgXIUMtYga2GURMbhDcinQ8bfRrw4
+### POST Try to login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "aliefpertama@gmail.com",
+    "password": "12345678"
+}
+
+### GET All court
+GET http://localhost:8000/court
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### GET Specific court
+GET http://localhost:8000/court/10c1a4e3-6ad4-4b5f-a4ce-ef84ec0cdded
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### POST Create court 
+POST http://localhost:8000/court
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "name" : "Lapangan x",
+    "price" : 150000
+}
+
+### PATCH Update court 
+PATCH http://localhost:8000/court/4ba75090-eaaa-4e4c-959f-8e0f71d3e500
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "name" : "Lapangan xyz",
+    "price" : 170000
+}
+
+### Delete court 
+DELETE http://localhost:8000/court/4ba75090-eaaa-4e4c-959f-8e0f71d3e500
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}

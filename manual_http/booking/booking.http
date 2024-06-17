@@ -1,0 +1,66 @@
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiMDZkOTA4LWE0ZjAtNGNjYy04YWE5LTY0YmMyYWM5MGY3MyIsImVtYWlsIjoiYWxpZWZwZXJ0YW1hQGdtYWlsLmNvbSIsIm5hbWUiOiJhbGllZnBlcnRhbWFZWVkiLCJjcmVhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjAwOjQxLjMyMFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjA0OjEyLjc2OFoiLCJyb2xlcyI6W3siaWQiOiI1MWI5ZjQyMy04YjlmLTQ3ZTMtOGMxNy1lOGQyNmE0M2IyZGUiLCJuYW1lIjoiU3RhZmYgbGFwYW5nYW4iLCJzbHVnIjoic3RhZmYtbGFwYW5nYW4iLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJwZXJtaXNzaW9ucyI6W3siaWQiOiIyMmM1YzhiZC05Nzg5LTQxYmUtYTRhMi1hM2RiMWE1ODA1NTciLCJuYW1lIjoiYXBpIGRlbGV0ZSBjb3VydCIsImtleSI6ImFwaS5kZWxldGUuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoifSx7ImlkIjoiNGZmMjAxNmItYzZiMi00MzBiLWE0MTAtZGNjNDQ5ZmE5NzQzIiwibmFtZSI6ImFwaSB2aWV3IGNvdXJ0Iiwia2V5IjoiYXBpLnZpZXcuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloifSx7ImlkIjoiOWNmYzdiNDEtYmRjYy00ZDRjLWFkOGMtNTRlNThmNmIzMzYzIiwibmFtZSI6ImFwaSB1cGRhdGUgY291cnQiLCJrZXkiOiJhcGkudXBkYXRlLmNvdXJ0IiwiY3JlYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIiwidXBkYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIn0seyJpZCI6IjNkMWE0MjAwLWJlOWUtNGVhOC1iMThjLWE0MTc2Mzc3ZGM5YyIsIm5hbWUiOiJhcGkgY3JlYXRlIGNvdXJ0Iiwia2V5IjoiYXBpLmNyZWF0ZS5jb3VydCIsImNyZWF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiJ9XX1dLCJpYXQiOjE3MTg1ODU3MzMsImV4cCI6MTcxODU4NzUzM30.PurRX84UvKwQT8ilxUq3PMYLKvr5OhMDPjw3K54OsTc
+### POST Try to login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "aliefpertama@gmail.com",
+    "password": "12345678"
+}
+
+### GET All booking
+GET http://localhost:8000/booking
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### GET Specific booking
+GET http://localhost:8000/booking/35480730-7e1b-4de0-970b-11eeb070d7e1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### POST Create booking 
+POST http://localhost:8000/booking
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "court" : "b6df2c54-4f58-4ec8-a702-de20943fa4f6",
+    "occupant" : "Mister Alief",
+    "address" : "Jl Raya Sulawesi",
+    "handphoneNumber" : "08123456789",
+    "startDate" : "2024-11-25",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "status" : "BOOKED",
+    "rentalEquipments" : [{
+        "id":"85a47f46-6156-4969-ae80-3fdcec454013"
+    }]
+}
+
+### PATCH Update booking 
+PATCH http://localhost:8000/booking/7b684c95-b473-48d2-b3d7-5f3804c362fa
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "court" : "b6df2c54-4f58-4ec8-a702-de20943fa4f6",
+    "occupant" : "Mister Alief xyz",
+    "address" : "Jl Raya Sulawesi",
+    "handphoneNumber" : "08123456789",
+    "startDate" : "2024-11-25",
+    "startTime": "09:00",
+    "endTime": "10:00",
+    "status" : "BOOKED",
+    "rentalEquipments" : []
+}
+
+### Delete booking 
+DELETE http://localhost:8000/booking/7b684c95-b473-48d2-b3d7-5f3804c362fa
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}

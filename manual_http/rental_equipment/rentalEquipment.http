@@ -1,0 +1,50 @@
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiMDZkOTA4LWE0ZjAtNGNjYy04YWE5LTY0YmMyYWM5MGY3MyIsImVtYWlsIjoiYWxpZWZwZXJ0YW1hQGdtYWlsLmNvbSIsIm5hbWUiOiJhbGllZnBlcnRhbWFZWVkiLCJjcmVhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjAwOjQxLjMyMFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjA0OjEyLjc2OFoiLCJyb2xlcyI6W3siaWQiOiI1MWI5ZjQyMy04YjlmLTQ3ZTMtOGMxNy1lOGQyNmE0M2IyZGUiLCJuYW1lIjoiU3RhZmYgbGFwYW5nYW4iLCJzbHVnIjoic3RhZmYtbGFwYW5nYW4iLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJwZXJtaXNzaW9ucyI6W3siaWQiOiIyMmM1YzhiZC05Nzg5LTQxYmUtYTRhMi1hM2RiMWE1ODA1NTciLCJuYW1lIjoiYXBpIGRlbGV0ZSBjb3VydCIsImtleSI6ImFwaS5kZWxldGUuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoifSx7ImlkIjoiNGZmMjAxNmItYzZiMi00MzBiLWE0MTAtZGNjNDQ5ZmE5NzQzIiwibmFtZSI6ImFwaSB2aWV3IGNvdXJ0Iiwia2V5IjoiYXBpLnZpZXcuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloifSx7ImlkIjoiOWNmYzdiNDEtYmRjYy00ZDRjLWFkOGMtNTRlNThmNmIzMzYzIiwibmFtZSI6ImFwaSB1cGRhdGUgY291cnQiLCJrZXkiOiJhcGkudXBkYXRlLmNvdXJ0IiwiY3JlYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIiwidXBkYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIn0seyJpZCI6IjNkMWE0MjAwLWJlOWUtNGVhOC1iMThjLWE0MTc2Mzc3ZGM5YyIsIm5hbWUiOiJhcGkgY3JlYXRlIGNvdXJ0Iiwia2V5IjoiYXBpLmNyZWF0ZS5jb3VydCIsImNyZWF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiJ9XX1dLCJpYXQiOjE3MTg1ODU3MzMsImV4cCI6MTcxODU4NzUzM30.PurRX84UvKwQT8ilxUq3PMYLKvr5OhMDPjw3K54OsTc
+### POST Try to login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "aliefpertama@gmail.com",
+    "password": "12345678"
+}
+
+### GET All rental-equipment
+GET http://localhost:8000/rental-equipment
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### GET Specific rental-equipment
+GET http://localhost:8000/rental-equipment/a1ca1e19-0c54-4693-8f1f-0efac1789ac9
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### POST Create rental-equipment 
+POST http://localhost:8000/rental-equipment
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "name" : "Bendera",
+    "price" : 5000
+}
+
+### PATCH Update rental-equipment 
+PATCH http://localhost:8000/rental-equipment/3778f09f-005e-4451-89e8-7bcc76542a9a
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "name" : "Bendera xyz",
+    "price" : 5000
+}
+
+### Delete rental-equipment 
+DELETE http://localhost:8000/rental-equipment/3778f09f-005e-4451-89e8-7bcc76542a9a
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}

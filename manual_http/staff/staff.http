@@ -1,0 +1,60 @@
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEwYjMwMTRmLWMzYjctNGZlZS05OTNhLWU1MDFmN2I2YjZjMyIsImVtYWlsIjoiYWxpZWZwZXJ0YW1hQGdtYWlsLmNvbSIsIm5hbWUiOiJhbGllZnBlcnRhbWFZWVkiLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE3VDA2OjA5OjQwLjg1N1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE3VDA2OjA5OjQwLjg1N1oiLCJyb2xlcyI6W10sImlhdCI6MTcxODYwNDgyNCwiZXhwIjoxNzE4NjA2NjI0fQ.E5W6L9CC5dlfhWejrRQld4FhZC_S5FHPRKdgqFWzbfU
+### POST Try to login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "aliefpertama@gmail.com",
+    "password": "12345678"
+}
+
+### GET All staff
+GET http://localhost:8000/staff
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### GET One staff
+GET http://localhost:8000/staff/c857ce2d-a7b2-453f-a5fa-9c8c80baaf62
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+### POST Create staff 
+POST http://localhost:8000/staff
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "name" : "Test Alief",
+    "email" : "testaliefkun@gmail.com",
+    "password" : "1234567890",
+    // "roles" : [{
+    //     "id": "51b9f423-8b9f-47e3-8c17-e8d26a43b2de"
+    // }]
+    "roles" : []
+}
+
+### PATCH Update staff 
+PATCH http://localhost:8000/staff/a8d432fa-da3f-4630-99da-929c71731457
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "name" : "Test Alief Updated",
+    "email" : "testaliefkun@gmail.com",
+    "password" : "1234567890",
+    // "roles" : [{
+    //     "id": "51b9f423-8b9f-47e3-8c17-e8d26a43b2de"
+    // }]
+    "roles" : []
+}
+
+### DELETE Staff
+DELETE http://localhost:8000/staff/a8d432fa-da3f-4630-99da-929c71731457
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}

@@ -9,7 +9,7 @@ import { UpdateStaffDto } from './dto/update-staff.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Staff } from './entities/staff.entity';
-import dataSource from 'src/db/data-source';
+import dataSource from 'src/data-source/data-source';
 
 @Injectable()
 export class StaffService {

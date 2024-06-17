@@ -6,8 +6,8 @@ import { compare } from 'bcrypt';
 import { omit } from 'lodash';
 import { Staff } from 'src/modules/staff/entities/staff.entity';
 
-const EXPIRE_TIME = 5 * 60 * 1000; // In seconds
-const ACCESS_TOKEN_EXPIRE_TIME = '5m';
+const EXPIRE_TIME = 30 * 60 * 1000; // In seconds
+const ACCESS_TOKEN_EXPIRE_TIME = '30m';
 const REFRESH_TOKEN_EXPIRE_TIME = '20m';
 
 @Injectable()
