@@ -1,4 +1,4 @@
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRiMDZkOTA4LWE0ZjAtNGNjYy04YWE5LTY0YmMyYWM5MGY3MyIsImVtYWlsIjoiYWxpZWZwZXJ0YW1hQGdtYWlsLmNvbSIsIm5hbWUiOiJhbGllZnBlcnRhbWFZWVkiLCJjcmVhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjAwOjQxLjMyMFoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA0LTMwVDA1OjA0OjEyLjc2OFoiLCJyb2xlcyI6W3siaWQiOiI1MWI5ZjQyMy04YjlmLTQ3ZTMtOGMxNy1lOGQyNmE0M2IyZGUiLCJuYW1lIjoiU3RhZmYgbGFwYW5nYW4iLCJzbHVnIjoic3RhZmYtbGFwYW5nYW4iLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUyOjU5LjQ0M1oiLCJwZXJtaXNzaW9ucyI6W3siaWQiOiIyMmM1YzhiZC05Nzg5LTQxYmUtYTRhMi1hM2RiMWE1ODA1NTciLCJuYW1lIjoiYXBpIGRlbGV0ZSBjb3VydCIsImtleSI6ImFwaS5kZWxldGUuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjI4LjUyNVoifSx7ImlkIjoiNGZmMjAxNmItYzZiMi00MzBiLWE0MTAtZGNjNDQ5ZmE5NzQzIiwibmFtZSI6ImFwaSB2aWV3IGNvdXJ0Iiwia2V5IjoiYXBpLnZpZXcuY291cnQiLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTA1VDEyOjUxOjIzLjE2NloifSx7ImlkIjoiOWNmYzdiNDEtYmRjYy00ZDRjLWFkOGMtNTRlNThmNmIzMzYzIiwibmFtZSI6ImFwaSB1cGRhdGUgY291cnQiLCJrZXkiOiJhcGkudXBkYXRlLmNvdXJ0IiwiY3JlYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIiwidXBkYXRlZEF0IjoiMjAyNC0wNS0wNVQxMjo1MToxOC4wMDhaIn0seyJpZCI6IjNkMWE0MjAwLWJlOWUtNGVhOC1iMThjLWE0MTc2Mzc3ZGM5YyIsIm5hbWUiOiJhcGkgY3JlYXRlIGNvdXJ0Iiwia2V5IjoiYXBpLmNyZWF0ZS5jb3VydCIsImNyZWF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDUtMDVUMTI6NTE6MDguNDcwWiJ9XX1dLCJpYXQiOjE3MTg1ODM1ODMsImV4cCI6MTcxODU4NTM4M30.4lXfXgsBHy4YPxSgXIUMtYga2GURMbhDcinQ8bfRrw4
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEwYjMwMTRmLWMzYjctNGZlZS05OTNhLWU1MDFmN2I2YjZjMyIsImVtYWlsIjoiYWxpZWZwZXJ0YW1hQGdtYWlsLmNvbSIsIm5hbWUiOiJhbGllZnBlcnRhbWFZWVkiLCJjcmVhdGVkQXQiOiIyMDI0LTA2LTE3VDA2OjA5OjQwLjg1N1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTA2LTE3VDA2OjA5OjQwLjg1N1oiLCJyb2xlcyI6W10sImlhdCI6MTcxODYwNTI3MywiZXhwIjoxNzE4NjA3MDczfQ.nSu_gRwF2IwBSeLKVn_kGbntNOJDPsX9DgR8eCg_0XQ
 ### POST Try to login
 POST http://localhost:8000/auth/login
 Content-Type: application/json
@@ -34,7 +34,7 @@ Authorization: Bearer {{accessToken}}
 }
 
 ### PATCH Update role 
-PATCH http://localhost:8000/role/3ea29840-824e-4848-9417-879599ff1399
+PATCH http://localhost:8000/role/f2ea7992-369f-4c04-9521-bc46f47251b7
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{accessToken}}
@@ -42,13 +42,14 @@ Authorization: Bearer {{accessToken}}
 {
     "name" : "Role test 1x",
     "slug" : "Role-test-1x",
-    "permissions":[
-        {"id":"4ff2016b-c6b2-430b-a410-dcc449fa9743"}
-    ]
+    //"permissions":[
+    //    {"id":"4ff2016b-c6b2-430b-a410-dcc449fa9743"}
+    //]
+    "permissions":[]
 }
 
 ### Delete role 
-DELETE http://localhost:8000/role/3ea29840-824e-4848-9417-879599ff1399
+DELETE http://localhost:8000/role/f2ea7992-369f-4c04-9521-bc46f47251b7
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{accessToken}}
